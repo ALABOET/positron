@@ -3,13 +3,13 @@
     <div class="root">
       <div class="order-header">Итого</div>
       <div class="order-information">
-        <div class="order-information__row row"><div class="row__text">Сумма заказа</div><div class="row__info">{{currentPrice}} р</div></div>
+        <div class="order-information__row row"><div class="row__text">Сумма заказа</div><div class="row__info">{{currentPrice}} ₽</div></div>
         <div class="order-information__row row"><div class="row__text">Количество</div><div class="row__info">{{ numberOfItems }} шт</div></div>
         <div class="order-information__row row"><div class="row__text">Установка</div><div class="row__info">{{ installationIsNeededText }}</div></div>
       </div>
       <div class="order-price">
         <div class="order-price__text">Стоимость товаров</div>
-        <div class="order-price__price">{{ currentPrice }} р</div>
+        <div class="order-price__price">{{ currentPrice }} ₽</div>
       </div>
       <div class="order-buttons">
         <button class="order-buttons__button button-order">Оформить заказ</button>

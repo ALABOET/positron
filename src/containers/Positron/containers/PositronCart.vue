@@ -12,14 +12,14 @@
       >Очистить корзину</div>
     </div>
       <div class="positron-cart__content content">
-        <div class="content__item" v-for="elem in items" :key="elem">
+        <div class="content__item" v-for="item in items" :key="item">
           <ItemComponent
-            :image="`src/assets/icons/itemImages/${elem.image}.png`"
-            :title="elem.title"
-            :description="elem.description"
-            :number="elem.number"
-            :price="elem.price"
-            :times-ordered="elem.timesOrdered"
+            :image="`src/assets/icons/itemImages/${item.image}.png`"
+            :title="item.title"
+            :description="item.description"
+            :number="item.number"
+            :price="item.price"
+            :times-ordered="item.timesOrdered"
             @on-delete="deleteItem"
             @on-add-item="addOneItem"
             @on-remove-item="removeOneItem"
@@ -33,12 +33,14 @@
             :value="installationIsNeeded"
             @change="updateCheckbox"
           >
-          <div class="footer__icon">
-            <img src="src/assets/icons/installation.svg" />
-          </div>
-          <div class="footer__text text">
-            <div class="text_install">Установка</div>
-            <div class="text_warning">Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.</div>
+          <div class="footer__options options">
+            <div class="options__icon">
+              <img src="src/assets/icons/installation.svg" />
+            </div>
+            <div class="footer__text text">
+              <div class="text__install">Установка</div>
+              <div class="text__warning">Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -66,8 +68,7 @@ export default {
 
 <style lang="scss" scoped>
 .app-positron-cart {
-  position: relative;
-  top: 207px;
+  margin-top: 207px;
   display: flex;
   gap: 55px;
   .positron-cart {
@@ -130,17 +131,36 @@ export default {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        .footer__icon {
-          background: #FFFFFF;
-          width: 50px;
-          height: 50px;
-          position: relative;
-          border-radius: 4px;
-          img {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .options {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          &__icon {
+            background: #FFFFFF;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            border-radius: 4px;
+            img {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+        .text {
+          font-family: 'Lato';
+          font-style: normal;
+          &__install {
+            font-weight: 600;
+            font-size: 16px;
+            color: #1F2432;
+          }
+          &__warning {
+            font-weight: 400;
+            font-size: 14px;
+            color: #797B86;
           }
         }
       }

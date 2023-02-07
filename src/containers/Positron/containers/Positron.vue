@@ -13,10 +13,11 @@
         <div class="positron-cart-icon__info info">
           <div class="info__text">Ваша корзина</div>
           <div class="info__quantity">{{numberOfItems > 0 ? numberOfItems : ''}} {{ quantityItemText }}</div>
-          <div class="info__price">{{ currentPrice }} р</div>
+          <div class="info__price">{{ currentPrice }} ₽</div>
         </div>
       </div>
       <PositronCart />
+      <ViewedItems />
     </div>
   </div>
 </template>
@@ -25,9 +26,10 @@
 import OrderInformation from "./OrderInformation.vue";
 import PositronCart from "./PositronCart.vue";
 import { mapGetters } from 'vuex'
+import ViewedItems from "./ViewedItems.vue";
 export default {
   name: "Positron",
-  components: {PositronCart, OrderInformation },
+  components: {ViewedItems, PositronCart, OrderInformation },
   computed: {
     ...mapGetters(['currentPrice', 'numberOfItems', 'quantityItemText'])
   }
