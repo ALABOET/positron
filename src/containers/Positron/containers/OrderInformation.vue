@@ -5,7 +5,7 @@
       <div class="order-information">
         <div class="order-information__row row"><div class="row__text">Сумма заказа</div><div class="row__info">{{currentPrice}} р</div></div>
         <div class="order-information__row row"><div class="row__text">Количество</div><div class="row__info">{{ numberOfItems }} шт</div></div>
-        <div class="order-information__row row"><div class="row__text">Установка</div><div class="row__info">Нет</div></div>
+        <div class="order-information__row row"><div class="row__text">Установка</div><div class="row__info">{{ installationIsNeededText }}</div></div>
       </div>
       <div class="order-price">
         <div class="order-price__text">Стоимость товаров</div>
@@ -25,7 +25,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "OrderInformation",
   computed: {
-    ...mapGetters(['currentPrice', 'numberOfItems'])
+    ...mapGetters(['currentPrice', 'numberOfItems', 'installationIsNeededText'])
   }
 }
 </script>
@@ -33,7 +33,8 @@ export default {
 <style lang="scss" scoped>
 .app-order-information {
   width: 37%;
-  height: 468px;
+  margin-top: 60px;
+  height: 458px;
   background: #F6F8FA;
   border-radius: 5px;
   color: #1F2432;

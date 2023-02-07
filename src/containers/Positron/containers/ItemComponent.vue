@@ -58,7 +58,6 @@ export default {
   .app-item-component {
     position: relative;
     height: 118px;
-    border-bottom: 1px solid #C4C4C4;
     margin-top: 29px;
     &__close-button {
       position: absolute;
