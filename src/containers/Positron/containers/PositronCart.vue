@@ -4,11 +4,28 @@
       <div class="positron-cart__header header">
       <div class="header__items items">
         <div class="items__text">Ваша корзина</div>
-        <div class="items__quantity">4 товара</div>
+        <div class="items__quantity">{{numberOfItems > 0 ? numberOfItems : ''}} {{quantityItemText}}</div>
       </div>
-      <div class="header__clear-cart">Очистить корзину</div>
+      <div
+        class="header__clear-cart"
+        @click="clearCart"
+      >Очистить корзину</div>
     </div>
-      <div class="positron-cart__content"></div>
+      <div class="positron-cart__content">
+        <div v-for="elem in items" :key="elem">
+          <ItemComponent
+            :image="`src/assets/icons/itemImages/${elem.image}.png`"
+            :title="elem.title"
+            :description="elem.description"
+            :number="elem.number"
+            :price="elem.price"
+            :times-ordered="elem.timesOrdered"
+            @on-delete="deleteItem"
+            @on-add-item="addOneItem"
+            @on-remove-item="removeOneItem"
+          />
+        </div>
+      </div>
       <div class="positron-cart__footer"></div>
     </div>
     <OrderInformation />
@@ -17,9 +34,18 @@
 
 <script>
 import OrderInformation from "./OrderInformation.vue";
+import ItemComponent from "./ItemComponent.vue";
+import { mapState, mapGetters, mapMutations } from 'vuex'
 export default {
   name: "PositronCart",
-  components: {OrderInformation}
+  components: {ItemComponent, OrderInformation},
+  computed: {
+    ...mapState(['items']),
+    ...mapGetters(['numberOfItems', 'quantityItemText'])
+  },
+  methods: {
+    ...mapMutations(['deleteItem', 'clearCart', 'addOneItem', 'removeOneItem']),
+  }
 }
 </script>
 
