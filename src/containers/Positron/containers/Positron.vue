@@ -12,8 +12,8 @@
         <img src="src/assets/icons/cart.svg">
         <div class="positron-cart-icon__info info">
           <div class="info__text">Ваша корзина</div>
-          <div class="info__quantity">3 товара</div>
-          <div class="info__price">50 576 р</div>
+          <div class="info__quantity">{{numberOfItems > 0 ? numberOfItems : ''}} {{ quantityItemText }}</div>
+          <div class="info__price">{{ currentPrice }} р</div>
         </div>
       </div>
       <PositronCart />
@@ -24,9 +24,13 @@
 <script>
 import OrderInformation from "./OrderInformation.vue";
 import PositronCart from "./PositronCart.vue";
+import { mapGetters } from 'vuex'
 export default {
   name: "Positron",
-  components: {PositronCart, OrderInformation }
+  components: {PositronCart, OrderInformation },
+  computed: {
+    ...mapGetters(['currentPrice', 'numberOfItems', 'quantityItemText'])
+  }
 }
 </script>
 
