@@ -32,10 +32,10 @@
           v-if="timesOrdered > 1"
           class="item-price"
         >
-          {{price}} р/шт.
+          {{price}} ₽/шт.
         </div>
       </div>
-      <div class="item__price">{{timesOrdered*+price.replace(' ', '')}} р</div>
+      <div class="item__price">{{timesOrdered*+price.replace(' ', '')}} ₽</div>
     </div>
   </div>
 </template>
@@ -79,6 +79,7 @@ export default {
       .text {
         font-family: 'Lato';
         font-style: normal;
+        flex-basis: 190px;
         &__title {
           font-weight: 600;
           font-size: 16px;
@@ -102,6 +103,13 @@ export default {
         align-items: center;
         .item-price{
           align-items: center;
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          color: #1F2432;
+          position: absolute;
+          top: 70px;
         }
       }
       .buttons {
@@ -118,13 +126,6 @@ export default {
             cursor: pointer;
           }
         }
-      }
-      .price {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        color: #1F2432;
       }
     }
   }

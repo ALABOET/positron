@@ -18,6 +18,13 @@ const store = createStore({
         { image: 'item1', title: 'Вытяжное устройство G2H', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 1},
         { image: 'item2', title: 'Вытяжное устройство ВХС', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 2},
         { image: 'item3', title: 'Вытяжное устройство GHN', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 1},
+      ],
+      viewedItems: [
+        { image: 'viewedItem1', title: 'BXC', description: 'Вытяжное устройство для механической системы вентиляции', rubPrice: '6 848 ₽ – 56 584 ₽', euroPrice: '77.60 € – 643.86 €'},
+        { image: 'viewedItem2', title: 'G2H', description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции', rubPrice: '6 848 ₽ – 56 584 ₽', euroPrice: '77.60 € – 643.86 €'},
+        { image: 'viewedItem3', title: 'GHN', description: 'Вытяжное устройство с датчиком присутствия', rubPrice: '6 848 ₽ – 56 584 ₽', euroPrice: '77.60 € – 643.86 €'},
+        { image: 'viewedItem4', title: 'TDA', description: 'Вытяжное устройство с датчиком присутствия', rubPrice: '6 848 ₽ – 56 584 ₽', euroPrice: '77.60 € – 643.86 €'},
+        { image: 'viewedItem1', title: 'BBG', description: 'Вытяжное устройство для механической системы вентиляции', rubPrice: '6 848 ₽ – 56 584 ₽', euroPrice: '77.60 € – 643.86 €'},
       ]
     }
   },
