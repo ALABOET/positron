@@ -11,8 +11,8 @@
         @click="clearCart"
       >Очистить корзину</div>
     </div>
-      <div class="positron-cart__content">
-        <div v-for="elem in items" :key="elem">
+      <div class="positron-cart__content content">
+        <div class="content__item" v-for="elem in items" :key="elem">
           <ItemComponent
             :image="`src/assets/icons/itemImages/${elem.image}.png`"
             :title="elem.title"
@@ -26,7 +26,22 @@
           />
         </div>
       </div>
-      <div class="positron-cart__footer"></div>
+      <div class="positron-cart__footer footer">
+        <div class="footer__installation">
+          <input
+            type="checkbox"
+            :value="installationIsNeeded"
+            @change="updateCheckbox"
+          >
+          <div class="footer__icon">
+            <img src="src/assets/icons/installation.svg" />
+          </div>
+          <div class="footer__text text">
+            <div class="text_install">Установка</div>
+            <div class="text_warning">Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.</div>
+          </div>
+        </div>
+      </div>
     </div>
     <OrderInformation />
   </div>
@@ -40,11 +55,11 @@ export default {
   name: "PositronCart",
   components: {ItemComponent, OrderInformation},
   computed: {
-    ...mapState(['items']),
+    ...mapState(['items', 'installationIsNeeded']),
     ...mapGetters(['numberOfItems', 'quantityItemText'])
   },
   methods: {
-    ...mapMutations(['deleteItem', 'clearCart', 'addOneItem', 'removeOneItem']),
+    ...mapMutations(['deleteItem', 'clearCart', 'addOneItem', 'removeOneItem', 'updateCheckbox']),
   }
 }
 </script>
@@ -94,6 +109,38 @@ export default {
             font-weight: 400;
             font-size: 18px;
             color: #797B86;
+          }
+        }
+      }
+    }
+    &__content {
+      .content {
+        &__item:not(:last-child) {
+          border-bottom: 1px solid #C4C4C4;
+        }
+      }
+    }
+    &__footer {
+      .footer__installation {
+        margin-top: 18px;
+        background: #F6F8FA;
+        border-radius: 5px;
+        height: 102px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .footer__icon {
+          background: #FFFFFF;
+          width: 50px;
+          height: 50px;
+          position: relative;
+          border-radius: 4px;
+          img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
           }
         }
       }

@@ -1,11 +1,20 @@
 import { createStore } from 'vuex'
+interface itemsData {
+  image: string,
+  title: string,
+  description: string,
+  number: string,
+  price: string,
+  timesOrdered: number,
+}
 
 const store = createStore({
   state () {
     return {
       totalItems: 0,
       totalCost: 0,
-      items: [
+      installationIsNeeded: false,
+      items:  [
         { image: 'item1', title: 'Вытяжное устройство G2H', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 1},
         { image: 'item2', title: 'Вытяжное устройство ВХС', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 2},
         { image: 'item3', title: 'Вытяжное устройство GHN', description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия', number: 'G2H1065', price: '12 644', timesOrdered: 1},
@@ -24,25 +33,31 @@ const store = createStore({
         if (state.items.length === 1) return 'товар'
         if (state.items.length > 1) return 'товара(ов)'
       },
+      installationIsNeededText(state) {
+        return state.installationIsNeeded ? 'Да' : 'Нет'
+      }
     },
     mutations: {
-      deleteItem(state,  name) {
+      deleteItem(state,  name: string): void {
         let index = state.items.findIndex((elem) => elem.title === name)
         state.items.splice(index, 1)
       },
-      addOneItem(state, name) {
+      addOneItem(state, name: string): void {
         let index = state.items.findIndex((elem) => elem.title === name)
         state.items[index].timesOrdered++
       },
-      removeOneItem(state, name) {
+      removeOneItem(state, name: string): void {
         let index = state.items.findIndex((elem) => elem.title === name)
         state.items[index].timesOrdered--
         if (state.items[index].timesOrdered === 0) {
           state.items.splice(index, 1)
         }
       },
-      clearCart(state) {
+      clearCart(state): void {
         state.items.length = 0
+      },
+      updateCheckbox(state) {
+        state.installationIsNeeded = !state.installationIsNeeded
       }
     },
     actions: {
