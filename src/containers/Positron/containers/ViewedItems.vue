@@ -4,7 +4,7 @@
       <div class="header__text">Просмотренные товары</div>
       <div class="header__controls controls">
         <img
-          src="src/assets/icons/previous.svg"
+          src="/src/assets/icons/previous.svg"
           @click="previousItem"
         />
         <div class="controls__numbers">
@@ -12,7 +12,7 @@
           <div class="controls__length">/ {{viewedItems.length}}</div>
         </div>
         <img
-          src="src/assets/icons/next.svg"
+          src="/src/assets/icons/next.svg"
           @click="nextItem"/>
       </div>
     </div>
@@ -28,7 +28,7 @@
           class="content__component"
         >
           <viewed-item-component
-            :image="`src/assets/icons/itemImages/${item.image}.png`"
+            :image="`/src/assets/icons/itemImages/${item.image}.png`"
             :title="item.title"
             :description="item.description"
             :rub-price="item.rubPrice"
