@@ -43,12 +43,10 @@ export default {
       display: block;
       margin: 7px auto;
     }
-    &__text {
-
-    }
     .text {
-      font-family: 'Lato';
+      font-family: 'Lato', sans-serif;
       font-style: normal;
+      text-align: left;
       height: 116px;
       &__title {
         font-weight: 700;
@@ -66,9 +64,10 @@ export default {
     &__price {
       display: flex;
       flex-direction: column;
+      text-align: left;
       .price {
         &__rub{
-          font-family: 'Roboto';
+          font-family: 'Roboto', sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 22px;
@@ -77,7 +76,7 @@ export default {
           margin-bottom: 10px;
         }
         &__euro {
-          font-family: 'Lato';
+          font-family: 'Lato', sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
@@ -92,14 +91,15 @@ export default {
       color: #FFFFFF;
       width: 100%;
       height: 52px;
-      font-family: 'Lato';
+      font-family: 'Lato', sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 16px;
       border: none;
+      transition: all .5s ease;
       &:hover {
         cursor: pointer;
-        opacity: 0.9;
+        opacity: 0.7;
       }
     }
   }

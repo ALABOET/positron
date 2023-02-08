@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 interface itemsData {
   image: string,
   title: string,
@@ -11,7 +12,6 @@ interface itemsData {
 const store = createStore({
   state () {
     return {
-      totalItems: 0,
       totalCost: 0,
       installationIsNeeded: false,
       items:  [
@@ -63,12 +63,17 @@ const store = createStore({
       clearCart(state): void {
         state.items.length = 0
       },
-      updateCheckbox(state) {
+      updateCheckbox(state): void {
         state.installationIsNeeded = !state.installationIsNeeded
       }
     },
     actions: {
-
+      purchaseItems({state, commit, getters }) {
+        axios.post('https://eo44idpmzji1e5k.m.pipedream.net',
+          { orders: state.items, price: getters.currentPrice, installationIsNeeded: state.installationIsNeeded, numberOfItems: getters.numberOfItems})
+            .then((res) => console.log(res.data))
+            .then(() => commit('clearCart'))
+      },
     }
 })
 export default store
