@@ -76,10 +76,16 @@ export default {
         flex-direction: column;
         gap: 7px;
       }
-      .text {
-        font-family: 'Lato';
+      &__price {
+        font-family: 'Roboto', sans-serif;
         font-style: normal;
-        flex-basis: 190px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #1F2432;
+      }
+      .text {
+        font-family: 'Lato', sans-serif;
+        flex-basis: 263px;
         &__title {
           font-weight: 600;
           font-size: 16px;
@@ -103,13 +109,13 @@ export default {
         align-items: center;
         .item-price{
           align-items: center;
-          font-family: 'Roboto';
+          font-family: 'Roboto', sans-serif;
           font-style: normal;
           font-weight: 500;
-          font-size: 18px;
-          color: #1F2432;
+          font-size: 12px;
           position: absolute;
-          top: 70px;
+          color: #1F2432;
+          top: 80px;
         }
       }
       .buttons {
@@ -122,6 +128,11 @@ export default {
           height: 32px;
           background: #F6F8FA;
           border-radius: 4px;
+          font-family: 'Lato', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          color: #1F2432;
           &:hover {
             cursor: pointer;
           }

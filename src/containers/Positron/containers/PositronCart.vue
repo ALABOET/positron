@@ -32,6 +32,7 @@
             type="checkbox"
             :value="installationIsNeeded"
             @change="updateCheckbox"
+            class="footer__checkbox"
           >
           <div class="footer__options options">
             <div class="options__icon">
@@ -80,7 +81,7 @@ export default {
       align-items: baseline;
       .header {
         &__clear-cart {
-          font-family: 'Lato';
+          font-family: 'Lato', sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -98,14 +99,14 @@ export default {
         align-items: baseline;
         .items {
           &__text {
-            font-family: 'Lato';
+            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 44px;
             color: #1F2432;
           }
           &__quantity {
-            font-family: 'Lato';
+            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 18px;
@@ -131,6 +132,10 @@ export default {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        .footer__checkbox {
+          width: 20px;
+          height: 20px;
+        }
         .options {
           display: flex;
           gap: 10px;
@@ -150,8 +155,7 @@ export default {
           }
         }
         .text {
-          font-family: 'Lato';
-          font-style: normal;
+          font-family: 'Lato', sans-serif;
           &__install {
             font-weight: 600;
             font-size: 16px;

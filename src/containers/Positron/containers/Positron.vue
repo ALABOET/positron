@@ -52,12 +52,18 @@ export default {
         .text {
           &__main {
             color: #33374E;
+            &:hover {
+              cursor: pointer;
+            }
           }
           &__cart {
             color: #797B86;
+            &:hover {
+              cursor: pointer;
+            }
           }
           &__cart, &__main {
-            font-family: 'Lato';
+            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
@@ -74,14 +80,17 @@ export default {
       &__info {
         .info {
           &__text {
+            font-family: 'Lato', sans-serif;
             font-size: 14px;
             color: #1F2432;
           }
           &__quantity {
+            font-family: 'Lato', sans-serif;
             font-size: 12px;
             color: #797B86;
           }
           &__price {
+            font-family: 'Lato', sans-serif;
             font-size: 12px;
           }
         }

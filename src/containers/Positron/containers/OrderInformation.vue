@@ -12,20 +12,40 @@
         <div class="order-price__price">{{ currentPrice }} ₽</div>
       </div>
       <div class="order-buttons">
-        <button class="order-buttons__button button-order">Оформить заказ</button>
-        <button class="order-buttons__button button-buy">Купить в 1 клик</button>
+        <button
+          class="order-buttons__button button-order"
+          :style="buttonStyles"
+          @click="purchaseItems"
+        >
+          Оформить заказ
+        </button>
+        <button
+          class="order-buttons__button button-buy"
+          :style="buttonStyles"
+        >
+          Купить в 1 клик
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "OrderInformation",
   computed: {
-    ...mapGetters(['currentPrice', 'numberOfItems', 'installationIsNeededText'])
+    ...mapGetters(['currentPrice', 'numberOfItems', 'installationIsNeededText']),
+    buttonStyles() {
+      return {
+        pointerEvents: this.numberOfItems === 0 ? 'none' : '',
+        opacity: this.numberOfItems === 0 ? '0.3' : '',
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['purchaseItems'])
   }
 }
 </script>
@@ -44,6 +64,7 @@ export default {
       font-size: 24px;
       margin-bottom: 31px;
       font-weight: 600;
+      font-family: 'Lato', sans-serif;
     }
     .order-information {
       display: flex;
@@ -56,14 +77,14 @@ export default {
         justify-content: space-between;
         .row {
           &__text {
-            font-family: 'Lato';
+            font-family: 'Lato', sans-serif;
             font-style: normal;
             font-weight: 500;
             font-size: 16px;
             line-height: 145%;
           }
           &__info {
-            font-family: 'Roboto';
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
@@ -77,12 +98,12 @@ export default {
       justify-content: space-between;
       margin-top: 16px;
       &__text {
-        font-family: 'Lato';
+        font-family: 'Lato', sans-serif;
         font-weight: 600;
         font-size: 18px;
       }
       &__price {
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 26px;
@@ -96,20 +117,28 @@ export default {
       &__button {
         height: 54px;
         border: none;
+        transition: all .5s ease;
         &:hover {
           cursor: pointer;
-          opacity: 0.9;
+          opacity: 0.7;
         }
       }
       .button-order {
+        font-family: 'Lato', sans-serif;
         background: #0069B4;
+        font-weight: 600;
         border-radius: 4px;
         color: #FFFFFF;
+        font-size: 18px;
       }
       .button-buy {
+        font-family: 'Lato', sans-serif;
+        font-weight: 600;
         background: #FFFFFF;
         border: 1px solid #0069B4;
         border-radius: 4px;
+        font-size: 18px;
+        color: #0069B4;
       }
     }
   }
