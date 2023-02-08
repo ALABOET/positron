@@ -14,7 +14,7 @@
       <div class="positron-cart__content content">
         <div class="content__item" v-for="item in items" :key="item">
           <ItemComponent
-            :image="`src/assets/icons/itemImages/${item.image}.png`"
+            :image="`/src/assets/icons/itemImages/${item.image}.png`"
             :title="item.title"
             :description="item.description"
             :number="item.number"
@@ -36,7 +36,7 @@
           >
           <div class="footer__options options">
             <div class="options__icon">
-              <img src="src/assets/icons/installation.svg" />
+              <img src="/src/assets/icons/installation.svg" />
             </div>
             <div class="footer__text text">
               <div class="text__install">Установка</div>

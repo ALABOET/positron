@@ -2,7 +2,7 @@
   <div class="app-item-component">
     <img
       class="app-item-component__close-button"
-      src="src/assets/icons/close.svg"
+      src="/src/assets/icons/close.svg"
       @click="$emit('onDelete', title)"
     >
     <div class="item">

@@ -4,12 +4,12 @@
       <div class="positron-header">
         <div class="positron-header__text text">
           <div class="text__main">Главная</div>
-          <img src="src/assets/icons/triangle.svg" />
+          <img src="/src/assets/icons/triangle.svg" />
           <div class="text__cart">Корзина</div>
         </div>
       </div>
       <div class="positron-cart-icon">
-        <img src="src/assets/icons/cart.svg">
+        <img src="/src/assets/icons/cart.svg">
         <div class="positron-cart-icon__info info">
           <div class="info__text">Ваша корзина</div>
           <div class="info__quantity">{{numberOfItems > 0 ? numberOfItems : ''}} {{ quantityItemText }}</div>
